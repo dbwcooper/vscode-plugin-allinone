@@ -1,0 +1,51 @@
+{
+    "import something from module": {
+        "prefix": "imp, import moduleName from module",
+        "body": "import ${2:moduleName} from ${1:module}"
+    },
+    "impc": {
+        "prefix": "impc, import pure Component",
+        "body": "import React, { PureComponent } from 'react';"
+    },
+    "clg": {
+        "prefix": "clg, console.log('name: ', name)",
+        "body": "console.log('name: ', $1)"
+    },
+    "react-intl-lang": {
+        "prefix": "ril",
+        "description": "react intl Lang 模板",
+        "body": [
+          "import { defineMessages } from 'react-intl';",
+          "\rconst Lang = defineMessages({",
+          "\t$1: { id: 'component.$2', defaultMessage: 'name' },",
+          "})",
+          "\nexport default Lang;"
+        ]
+    },
+    "react-intl-component": {
+        "prefix": "rcci",
+        "description": "生成 react intl 组件",
+        "body": [
+          "import React from 'react';",
+          "import { defineMessages, injectIntl } from 'react-intl';",
+          "import { CsConnect } from 'solv-common';",
+          "import { $1 } from 'snx@utils/NamespaceConstant';",
+          "\r@CsConnect(mapStateToProps)",
+          "class Custom extends React.PureComponent {",
+            "\trender() {",
+                "\t\tconst {",
+                    "\t\t\tintl: { formatMessage },",
+                "\t\t} = this.props;",
+                "\t\treturn (",
+                    "\t\t\t<div>test</div>",
+                "\t\t)",
+            "\t}",
+        "}",
+        "const mapStateToProps = (state) => {",
+            "\t// fields: state[HOME].get('form');",
+            "\treturn {};", 
+        "}",
+        "\rexport default injectIntl(Custom);"
+        ]
+    }
+}
