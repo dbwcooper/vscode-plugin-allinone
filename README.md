@@ -1,3 +1,6 @@
+
+# vscode-plugin-allinone
+coding habits personally
 vscode 插件如何运行
 https://code.visualstudio.com/api/references/extension-manifest 
 
@@ -32,3 +35,4 @@ https://code.visualstudio.com/api/references/activation-events
     onUri
     * // 默认激活
     ```
+
